@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 
 class ScaleViewController: UIViewController,UICollectionViewDelegate, UICollectionViewDataSource {
-    var majorOrMinor : Int = 0
+    var mode : Int = 0
     var scaleInt : Int = 0
     var keyInt : Int = 0
     var string6: [String] = ["","","","","","","","","","","","",""]
@@ -49,7 +49,11 @@ class ScaleViewController: UIViewController,UICollectionViewDelegate, UICollecti
         default:
             break
         }
-        
+        if self.traitCollection.userInterfaceStyle == .dark {
+            cell.layer.borderColor = UIColor.white.cgColor
+        } else {
+            cell.layer.borderColor = UIColor.black.cgColor
+        }
         cell.layer.borderWidth = 1
         return cell
     }
@@ -58,24 +62,15 @@ class ScaleViewController: UIViewController,UICollectionViewDelegate, UICollecti
             return 6
     }
     
-    private func numberOfItemsInRow(_ number: CGFloat) {
-
-            let layout = UICollectionViewFlowLayout()
-            let width = self.view.frame.size.width / 4
-            let height = width
-            layout.itemSize = CGSize(width: width, height: height)
-            layout.minimumLineSpacing = 0
-            layout.minimumInteritemSpacing = 0
-
-            board.collectionViewLayout = layout
-        }
+   
 
     @IBOutlet weak var board: UICollectionView!
     @IBOutlet weak var Key: UISegmentedControl!
-    @IBOutlet weak var majorMinor: UISegmentedControl!
+    @IBOutlet weak var modeSeg: UISegmentedControl!
     @IBAction func majorMinorAction(_ sender: Any) {
-        self.majorOrMinor = majorMinor.selectedSegmentIndex
+        self.mode = modeSeg.selectedSegmentIndex
         self.menuConfiguration()
+        self.scaleInt = 0
         self.fingerBoardUpdate()
     }
     @IBAction func Key_Action(_ sender: Any) {
@@ -84,7 +79,6 @@ class ScaleViewController: UIViewController,UICollectionViewDelegate, UICollecti
     }
     @IBOutlet weak var chooseScale: UIButton!
     @IBAction func chooseScaleAction(_ sender: UIButton) {
-        self.fingerBoardUpdate()
     }
     
     override func viewDidLoad() {
@@ -97,17 +91,17 @@ class ScaleViewController: UIViewController,UICollectionViewDelegate, UICollecti
     
     func menuConfiguration() {
         var menu = UIMenu(title: "menu", children: [])
-        switch majorOrMinor {
-        case 0:
+        switch mode {
+        case 0: //Major
             let natrual = UIAction(title: "Natural Scale", image: nil) { _ in self.scaleInt = 0
                 self.fingerBoardUpdate()
             }
             let pentatonic = UIAction(title: "Pentatonic Scale", image: nil) { _ in self.scaleInt = 1
                 self.fingerBoardUpdate()
             }
-            menu = UIMenu(title: "menu", children: [natrual,pentatonic])
+            menu = UIMenu(title: "Scale", children: [natrual,pentatonic])
             break
-        case 1:
+        case 1: //Minor
             let natrual = UIAction(title: "Natural Scale", image: nil) { _ in self.scaleInt = 0
                 self.fingerBoardUpdate()
             }
@@ -118,6 +112,13 @@ class ScaleViewController: UIViewController,UICollectionViewDelegate, UICollecti
                 self.fingerBoardUpdate()
             }
             menu = UIMenu(title: "Scale", children: [natrual,pentatonic,dorian])
+            break
+        case 2: //Other
+            let altered = UIAction(title: "Altered Scale", image: nil) { _ in self.scaleInt = 0
+                self.fingerBoardUpdate()
+            }
+            menu = UIMenu(title: "Scale", children: [altered])
+            break
         default: break
         }
         
@@ -125,7 +126,7 @@ class ScaleViewController: UIViewController,UICollectionViewDelegate, UICollecti
     }
     
     func fingerBoardUpdate(){
-        let string: [[String]] = fingerBoard().getInfo(key: self.keyInt, majorOrMinor: self.majorOrMinor, Scale: self.scaleInt)
+        let string: [[String]] = fingerBoard().getInfo(key: self.keyInt, mode: self.mode, Scale: self.scaleInt)
         self.string6 = string[0]
         self.string5 = string[1]
         self.string4 = string[2]
@@ -136,14 +137,4 @@ class ScaleViewController: UIViewController,UICollectionViewDelegate, UICollecti
         board.dataSource = self
         board.reloadData()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

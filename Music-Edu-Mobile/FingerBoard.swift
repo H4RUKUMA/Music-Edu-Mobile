@@ -15,11 +15,11 @@ class fingerBoard {
     var string2: [String] = []
     var string1: [String] = []
     
-    func getInfo(key: Int, majorOrMinor: Int, Scale: Int) -> [[String]] {
-        print("key: " + String(key) + " m/M: " + String(majorOrMinor) + " Scale: " + String(Scale))
+    func getInfo(key: Int, mode: Int, Scale: Int) -> [[String]] {
+        print("key: " + String(key) + " m/M: " + String(mode) + " Scale: " + String(Scale))
         var string: [[String]] = [[]]
-        switch (majorOrMinor) {
-        case 0:
+        switch (mode) {
+        case 0: //Major
             switch (Scale) {
             case 0: //Natrual Major
                 string6 = ["M3","11","","5","","13","","M7","R","","9","","M3"]
@@ -40,7 +40,7 @@ class fingerBoard {
             default: break
             }
             break
-        case 1:
+        case 1: //Minor
             switch (Scale) {
             case 0: //Natrual Minor
                 string6 = ["","11","","5","♭13","","m7","","R","","9","m3",""]
@@ -69,6 +69,19 @@ class fingerBoard {
             default: break
             }
             break
+        case 2:
+            switch (Scale) {
+            case 0: //Altered Scale
+                string6 = ["","","♭5","","#5/♭13","","m7","","R","♭9","","#9","M3"]
+                string5 = ["","R","♭9","","#9","M3","","♭5","","#5/♭13","","m7",""]
+                string4 = ["","♭13","","m7","","R","♭9","","#9","M3","","♭5",""]
+                string3 = ["","#9","M3","","♭5","","#5/♭13","","m7","","R","♭9",""]
+                string2 = ["","m7","","R","♭9","","#9","","11","♭5","","#5/♭13",""]
+                string1 = ["M3","","♭5","","#5/♭13","","m7","","R","♭9","","#9","M3"]
+                break
+            default: break
+            }
+            break
         default: break
         }
         changeKey(key: key)
@@ -77,7 +90,7 @@ class fingerBoard {
     }
     
     func changeKey(key: Int) {
-        for j in 0 ..< key {
+        for _ in 0 ..< key {
             string6.insert(string6[11], at: 0)
             string6.removeLast()
             string5.insert(string5[11], at: 0)

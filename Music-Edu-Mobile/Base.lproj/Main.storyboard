@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="69w-la-wly">
-    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <device id="retina6_1" orientation="landscape" appearance="dark"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Image references" minToolsVersion="12.0"/>
@@ -93,8 +93,11 @@
                                 </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rfa-yH-qkF">
-                                <rect key="frame" x="60" y="126" width="776" height="194"/>
+                                <rect key="frame" x="60" y="127" width="776" height="180"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="B5E-rZ-Vsc"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cAw-er-DVo">
                                     <size key="itemSize" width="60" height="50"/>
                                     <size key="estimatedItemSize" width="57" height="30"/>
@@ -111,9 +114,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djj-OY-4dc">
-                                                    <rect key="frame" x="0.0" y="8" width="29" height="13"/>
+                                                    <rect key="frame" x="0.0" y="8" width="55" height="13"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -128,18 +131,30 @@
                                 </connections>
                             </collectionView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YV8-qx-UHY">
-                                <rect key="frame" x="60" y="73" width="109" height="32"/>
+                                <rect key="frame" x="60" y="74" width="255" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="255" id="C0g-s8-8kj"/>
+                                    <constraint firstAttribute="height" constant="31" id="u2e-xx-pLF"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Major"/>
                                     <segment title="Minor"/>
+                                    <segment title="Other"/>
                                 </segments>
                                 <connections>
                                     <action selector="majorMinorAction:" destination="afD-z2-RLx" eventType="valueChanged" id="4gq-Sj-0hf"/>
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IAp-eT-CYQ">
-                                <rect key="frame" x="177" y="74" width="659" height="30"/>
+                                <rect key="frame" x="323" y="74" width="513" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="513" id="9rU-eI-mz7"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemFillColor"/>
                                 <state key="normal" title="Choose Scale"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Choose Scale" titleAlignment="center">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="chooseScaleAction:" destination="afD-z2-RLx" eventType="touchUpInside" id="boH-mt-bXc"/>
                                 </connections>
@@ -148,20 +163,15 @@
                         <viewLayoutGuide key="safeArea" id="99w-fk-Oaq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rfa-yH-qkF" firstAttribute="leading" secondItem="99w-fk-Oaq" secondAttribute="leading" constant="16" id="2DL-sa-3aB"/>
-                            <constraint firstItem="99w-fk-Oaq" firstAttribute="bottom" secondItem="rfa-yH-qkF" secondAttribute="bottom" constant="24" id="3MP-hW-pa0"/>
-                            <constraint firstItem="99w-fk-Oaq" firstAttribute="trailing" secondItem="l7j-Ch-dyH" secondAttribute="trailing" constant="16" id="7Qu-NX-mgm"/>
-                            <constraint firstItem="99w-fk-Oaq" firstAttribute="trailing" secondItem="rfa-yH-qkF" secondAttribute="trailing" constant="16" id="BV7-pc-4lB"/>
-                            <constraint firstItem="l7j-Ch-dyH" firstAttribute="leading" secondItem="99w-fk-Oaq" secondAttribute="leading" constant="16" id="DGv-z9-EuX"/>
-                            <constraint firstItem="99w-fk-Oaq" firstAttribute="trailing" secondItem="rfa-yH-qkF" secondAttribute="trailing" constant="16" id="OLg-X8-HXK"/>
-                            <constraint firstItem="IAp-eT-CYQ" firstAttribute="top" secondItem="l7j-Ch-dyH" secondAttribute="bottom" constant="23" id="QQK-wb-BJN"/>
-                            <constraint firstItem="YV8-qx-UHY" firstAttribute="leading" secondItem="99w-fk-Oaq" secondAttribute="leading" constant="16" id="QRH-cV-pey"/>
-                            <constraint firstItem="rfa-yH-qkF" firstAttribute="top" secondItem="YV8-qx-UHY" secondAttribute="bottom" constant="22" id="UPy-oE-q0o"/>
-                            <constraint firstItem="rfa-yH-qkF" firstAttribute="top" secondItem="IAp-eT-CYQ" secondAttribute="bottom" constant="22" id="Ur1-3G-cYA"/>
-                            <constraint firstItem="l7j-Ch-dyH" firstAttribute="top" secondItem="99w-fk-Oaq" secondAttribute="top" constant="20" id="WDN-Dc-LYO"/>
-                            <constraint firstItem="IAp-eT-CYQ" firstAttribute="leading" secondItem="YV8-qx-UHY" secondAttribute="trailing" constant="8" symbolic="YES" id="Yv4-6e-PCw"/>
-                            <constraint firstItem="99w-fk-Oaq" firstAttribute="trailing" secondItem="IAp-eT-CYQ" secondAttribute="trailing" constant="16" id="m8E-XV-p6J"/>
-                            <constraint firstItem="YV8-qx-UHY" firstAttribute="top" secondItem="l7j-Ch-dyH" secondAttribute="bottom" constant="22" id="ozn-Q5-X3z"/>
+                            <constraint firstItem="IAp-eT-CYQ" firstAttribute="leading" secondItem="YV8-qx-UHY" secondAttribute="trailing" constant="8" symbolic="YES" id="6tp-wq-dSW"/>
+                            <constraint firstItem="IAp-eT-CYQ" firstAttribute="trailing" secondItem="rfa-yH-qkF" secondAttribute="trailing" id="AKp-Ld-Uqm"/>
+                            <constraint firstItem="IAp-eT-CYQ" firstAttribute="trailing" secondItem="l7j-Ch-dyH" secondAttribute="trailing" id="Era-HW-eiW"/>
+                            <constraint firstItem="IAp-eT-CYQ" firstAttribute="top" secondItem="jzv-cR-kFA" secondAttribute="top" constant="74" id="cWh-SX-FO1"/>
+                            <constraint firstItem="IAp-eT-CYQ" firstAttribute="top" secondItem="l7j-Ch-dyH" secondAttribute="bottom" constant="23" id="ldu-0n-mgP"/>
+                            <constraint firstItem="rfa-yH-qkF" firstAttribute="leading" secondItem="99w-fk-Oaq" secondAttribute="leading" constant="16" id="psy-2K-dyL"/>
+                            <constraint firstItem="rfa-yH-qkF" firstAttribute="top" secondItem="YV8-qx-UHY" secondAttribute="bottom" constant="22" id="s9v-rD-jah"/>
+                            <constraint firstItem="99w-fk-Oaq" firstAttribute="trailing" secondItem="rfa-yH-qkF" secondAttribute="trailing" constant="16" id="uSe-ms-eTa"/>
+                            <constraint firstItem="IAp-eT-CYQ" firstAttribute="bottom" secondItem="YV8-qx-UHY" secondAttribute="bottom" id="vXH-nj-Qti"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scale" image="square.grid.3x1.fill.below.line.grid.1x2" catalog="system" id="cSb-Bs-KS1"/>
@@ -170,7 +180,7 @@
                         <outlet property="Key" destination="l7j-Ch-dyH" id="yy9-vy-F4U"/>
                         <outlet property="board" destination="rfa-yH-qkF" id="WnJ-HE-bfF"/>
                         <outlet property="chooseScale" destination="IAp-eT-CYQ" id="cyf-IQ-hRt"/>
-                        <outlet property="majorMinor" destination="YV8-qx-UHY" id="IQ6-Sv-M34"/>
+                        <outlet property="modeSeg" destination="YV8-qx-UHY" id="IQ6-Sv-M34"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFY-ig-cG2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -188,7 +198,7 @@
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="selectedImageTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" systemColor="tertiaryLabelColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="wOn-Cl-Y7z"/>
@@ -203,11 +213,20 @@
     <resources>
         <image name="circles.hexagonpath.fill" catalog="system" width="128" height="112"/>
         <image name="square.grid.3x1.fill.below.line.grid.1x2" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

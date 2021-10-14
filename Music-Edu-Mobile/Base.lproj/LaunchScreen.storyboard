@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,16 +13,11 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music - EDU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSU-Bs-Tpn">
-                                <rect key="frame" x="366" y="189" width="164" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="xSU-Bs-Tpn" secondAttribute="height" multiplier="41:9" id="6am-oN-Btk"/>
-                                    <constraint firstAttribute="height" constant="36" id="Ewd-qp-GnP"/>
-                                    <constraint firstAttribute="width" constant="164" id="cFP-08-rxE"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music - EDU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaQ-Qr-aNX">
+                                <rect key="frame" x="125" y="218" width="164" height="461"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -31,10 +26,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xSU-Bs-Tpn" secondAttribute="bottom" constant="168" id="74F-3f-32E"/>
-                            <constraint firstItem="xSU-Bs-Tpn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="322" id="A5C-9v-c6g"/>
-                            <constraint firstItem="xSU-Bs-Tpn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="189" id="B37-oP-63m"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xSU-Bs-Tpn" secondAttribute="trailing" constant="322" id="lxh-qQ-T8p"/>
+                            <constraint firstItem="xaQ-Qr-aNX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="174" id="1ST-M7-UaE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xaQ-Qr-aNX" secondAttribute="bottom" constant="183" id="NZf-it-7IU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xaQ-Qr-aNX" secondAttribute="trailing" constant="125" id="gAH-XT-KmA"/>
+                            <constraint firstItem="xaQ-Qr-aNX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="125" id="l3o-dE-wcV"/>
                         </constraints>
                     </view>
                 </viewController>
