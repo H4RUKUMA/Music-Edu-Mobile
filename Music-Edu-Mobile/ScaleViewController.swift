@@ -12,12 +12,7 @@ class ScaleViewController: UIViewController,UICollectionViewDelegate, UICollecti
     var mode : Int = 0
     var scaleInt : Int = 0
     var keyInt : Int = 0
-    var string6: [String] = ["","","","","","","","","","","","",""]
-    var string5: [String] = ["","","","","","","","","","","","",""]
-    var string4: [String] = ["","","","","","","","","","","","",""]
-    var string3: [String] = ["","","","","","","","","","","","",""]
-    var string2: [String] = ["","","","","","","","","","","","",""]
-    var string1: [String] = ["","","","","","","","","","","","",""]
+    var strings: [[String]]  = [[],[],[],[],[],[]]
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 13
@@ -27,32 +22,23 @@ class ScaleViewController: UIViewController,UICollectionViewDelegate, UICollecti
         let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         let label = cell.contentView.viewWithTag(1) as! UILabel
         label.textAlignment = .center
-        switch (indexPath.section) {
-        case 0:
-            label.text = string6[indexPath.row]
-            break
-        case 1:
-            label.text = string5[indexPath.row]
-            break
-        case 2:
-            label.text = string4[indexPath.row]
-            break
-        case 3:
-            label.text = string3[indexPath.row]
-            break
-        case 4:
-            label.text = string2[indexPath.row]
-            break
-        case 5:
-            label.text = string1[indexPath.row]
-            break
-        default:
-            break
-        }
+        label.text = strings[indexPath.section][indexPath.row]
+        
         if self.traitCollection.userInterfaceStyle == .dark {
+            if (strings[indexPath.section][indexPath.row] == "R") {
+                label.textColor = .red
+            } else {
+                label.textColor = .white
+            }
             cell.layer.borderColor = UIColor.white.cgColor
         } else {
+            if (strings[indexPath.section][indexPath.row] == "R") {
+                label.textColor = .red
+            } else {
+                label.textColor = .black
+            }
             cell.layer.borderColor = UIColor.black.cgColor
+            
         }
         cell.layer.borderWidth = 1
         return cell
@@ -85,8 +71,10 @@ class ScaleViewController: UIViewController,UICollectionViewDelegate, UICollecti
         board.layer.borderWidth = 1
         menuConfiguration()
         chooseScale.showsMenuAsPrimaryAction = true
+        for i in 0...5 {
+            self.strings[i].append(contentsOf: Array(repeating: "", count: 13))
+        }
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     func menuConfiguration() {
@@ -127,12 +115,7 @@ class ScaleViewController: UIViewController,UICollectionViewDelegate, UICollecti
     
     func fingerBoardUpdate(){
         let string: [[String]] = fingerBoard().getInfo(key: self.keyInt, mode: self.mode, Scale: self.scaleInt)
-        self.string6 = string[0]
-        self.string5 = string[1]
-        self.string4 = string[2]
-        self.string3 = string[3]
-        self.string2 = string[4]
-        self.string1 = string[5]
+        self.strings = [string[0],string[1],string[2],string[3],string[4],string[5]]
         board.delegate = self
         board.dataSource = self
         board.reloadData()
