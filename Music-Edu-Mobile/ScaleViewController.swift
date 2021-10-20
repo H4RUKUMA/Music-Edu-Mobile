@@ -21,25 +21,17 @@ class ScaleViewController: UIViewController,UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         let label = cell.contentView.viewWithTag(1) as! UILabel
+        
+        if self.traitCollection.userInterfaceStyle == .dark {
+            cell.layer.borderColor = UIColor.white.cgColor
+        } else {
+            cell.layer.borderColor = UIColor.black.cgColor
+        }
+        
         label.textAlignment = .center
         label.text = strings[indexPath.section][indexPath.row]
         
-        if self.traitCollection.userInterfaceStyle == .dark {
-            if (strings[indexPath.section][indexPath.row] == "R") {
-                label.textColor = .red
-            } else {
-                label.textColor = .white
-            }
-            cell.layer.borderColor = UIColor.white.cgColor
-        } else {
-            if (strings[indexPath.section][indexPath.row] == "R") {
-                label.textColor = .red
-            } else {
-                label.textColor = .black
-            }
-            cell.layer.borderColor = UIColor.black.cgColor
-            
-        }
+        
         cell.layer.borderWidth = 1
         return cell
     }
