@@ -127,7 +127,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="l7j-Ch-dyH" userLabel="Key Segment">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="l7j-Ch-dyH" userLabel="Key Segment">
                                 <rect key="frame" x="60" y="20" width="776" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="l7j-Ch-dyH" secondAttribute="height" multiplier="776:31" id="CS7-AN-ikd"/>
@@ -188,7 +188,7 @@
                                     <outlet property="delegate" destination="afD-z2-RLx" id="cXd-CY-uHl"/>
                                 </connections>
                             </collectionView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YV8-qx-UHY">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YV8-qx-UHY">
                                 <rect key="frame" x="60" y="74" width="255" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="255" id="C0g-s8-8kj"/>
@@ -203,7 +203,7 @@
                                     <action selector="majorMinorAction:" destination="afD-z2-RLx" eventType="valueChanged" id="4gq-Sj-0hf"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IAp-eT-CYQ">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IAp-eT-CYQ">
                                 <rect key="frame" x="323" y="74" width="513" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="513" id="9rU-eI-mz7"/>
