@@ -14,6 +14,10 @@ class ChordViewController: UIViewController, UICollectionViewDelegate,UICollecti
     var Mode : Int = 0
     var key : Int = 0
     
+    private let sideMargin: CGFloat = 0
+    private let itemPerWidth: CGFloat = 9
+    private let itemSpacing: CGFloat = 0
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 7
     }
@@ -33,6 +37,7 @@ class ChordViewController: UIViewController, UICollectionViewDelegate,UICollecti
             label.text = root[indexPath.row]
             break
         case 2:
+            label.text = third[indexPath.row]
             break
         case 3:
             label.text = fifth[indexPath.row]
@@ -53,25 +58,37 @@ class ChordViewController: UIViewController, UICollectionViewDelegate,UICollecti
         let keyText : String = Key_Segment.titleForSegment(at: self.key)!
         print("Num: " + String(self.key) + " Key: " + keyText)
         self.setKey()
-        self.chordTable.reloadData()
     }
     
     @IBOutlet weak var ModeSeg: UISegmentedControl!
     @IBAction func ModeSegAction(_ sender: Any) {
         self.Mode = ModeSeg.selectedSegmentIndex
         self.setKey()
-        self.chordTable.reloadData()
     }
     
     @IBOutlet weak var chordTable: UICollectionView!
 
     
     override func viewDidLoad() {
-        setKey()
+        chordTable.delegate = self
+        chordTable.dataSource = self
+        chordTable.reloadData()
+        
+        let layout = UICollectionViewFlowLayout()
+                layout.sectionInset = UIEdgeInsets(top: 10,
+                                                   left: sideMargin,
+                                                   bottom: 10,
+                                                   right: sideMargin)
+        layout.minimumInteritemSpacing = itemSpacing
+        chordTable.collectionViewLayout = layout
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.setKey()
+    }
     func setKey() {
         keyString = ["C", "C#/D♭", "D", "D#/E♭", "E","F","F#/G♭", "G","G#/A♭", "A", "A#/B♭", "B"]
         for _ in 0 ..< key {
@@ -91,7 +108,19 @@ class ChordViewController: UIViewController, UICollectionViewDelegate,UICollecti
             self.fifth  = [keyString[7],keyString[8],keyString[10],keyString[0],keyString[2],keyString[3],keyString[5]]
             self.seventh = [keyString[10],keyString[0],keyString[2],keyString[3],keyString[5],keyString[7],keyString[8]]
         }
+        self.chordTable.reloadData()
     }
 }
 
-//second test
+extension ChordViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // セルの割当に利用可能なwidth
+        // :親viewのwidth - 左右のマージン - セル間の水平方向の間隔 * (列数 - 1)
+        let availableWidth = (view.frame.width - sideMargin * 2) - itemSpacing * (itemPerWidth - 1)
+
+        // セル一つのwidth
+        let width = availableWidth / itemPerWidth
+        // heightを変更
+        return CGSize(width: width, height: 22)
+    }
+}

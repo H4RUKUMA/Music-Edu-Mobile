@@ -18,6 +18,9 @@
 		6E3DB7552715973800AD1B98 /* Music_Edu_MobileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DB7542715973800AD1B98 /* Music_Edu_MobileTests.swift */; };
 		6E3DB75F2715973800AD1B98 /* Music_Edu_MobileUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DB75E2715973800AD1B98 /* Music_Edu_MobileUITests.swift */; };
 		6E3DB7612715973800AD1B98 /* Music_Edu_MobileUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DB7602715973800AD1B98 /* Music_Edu_MobileUITestsLaunchTests.swift */; };
+		6EB5C3112724585800B47F83 /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB5C3102724585800B47F83 /* DocumentBrowserViewController.swift */; };
+		6EB5C3132724586800B47F83 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB5C3122724586800B47F83 /* Document.swift */; };
+		6EB5C3152724586E00B47F83 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB5C3142724586E00B47F83 /* DocumentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		6E3DB75A2715973800AD1B98 /* Music-Edu-MobileUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Music-Edu-MobileUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E3DB75E2715973800AD1B98 /* Music_Edu_MobileUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music_Edu_MobileUITests.swift; sourceTree = "<group>"; };
 		6E3DB7602715973800AD1B98 /* Music_Edu_MobileUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music_Edu_MobileUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6EB5C3102724585800B47F83 /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
+		6EB5C3122724586800B47F83 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		6EB5C3142724586E00B47F83 /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,9 @@
 			children = (
 				6E3DB73D2715973600AD1B98 /* AppDelegate.swift */,
 				6E3DB73F2715973600AD1B98 /* SceneDelegate.swift */,
+				6EB5C3102724585800B47F83 /* DocumentBrowserViewController.swift */,
+				6EB5C3142724586E00B47F83 /* DocumentViewController.swift */,
+				6EB5C3122724586800B47F83 /* Document.swift */,
 				6E3DB7412715973600AD1B98 /* ChordViewController.swift */,
 				6E20656D2715B804000FF85E /* ScaleViewController.swift */,
 				6E20656F2715E617000FF85E /* FingerBoard.swift */,
@@ -268,6 +277,9 @@
 				6E2065702715E617000FF85E /* FingerBoard.swift in Sources */,
 				6E3DB73E2715973600AD1B98 /* AppDelegate.swift in Sources */,
 				6E3DB7402715973600AD1B98 /* SceneDelegate.swift in Sources */,
+				6EB5C3112724585800B47F83 /* DocumentBrowserViewController.swift in Sources */,
+				6EB5C3152724586E00B47F83 /* DocumentViewController.swift in Sources */,
+				6EB5C3132724586800B47F83 /* Document.swift in Sources */,
 				6E20656E2715B804000FF85E /* ScaleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,17 +457,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5L9SGQKD4B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Music-Edu-Mobile/Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,17 +490,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5L9SGQKD4B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Music-Edu-Mobile/Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeRight UIInterfaceOrientationLandscapeLeft";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
